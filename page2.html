@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Tem certeza?</title>
+     <link rel="stylesheet" href="style.css">
+
+  
+</head>
+
+<body>
+
+   <div class="container-box">
+
+    <div class="content-box">
+
+        <h1>PARABÉNS!!!!!!!!!!!!</h1>
+
+        <div class="imagem-container-page2">
+            <img src="happy-birthday-cat-gif-11.gif" alt="Imagem de aniversário">  <img src="happy-birthday-cat-gif-9.gif" alt="Imagem de aniversário">
+
+        </div>
+
+       
+
+    </div>
+
+</div>
+<canvas id="confetti"></canvas>
+<script>
+    const canvas = document.getElementById("confetti");
+    const ctx = canvas.getContext("2d");
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const confetes = [];
+
+    const cores = [
+        "#ff0000",
+        "#00ff00",
+        "#0000ff",
+        "#ffff00",
+        "#ff00ff",
+        "#00ffff",
+        "#ffa500"
+    ];
+
+    for (let i = 0; i < 150; i++) {
+        confetes.push({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height - canvas.height,
+            tamanho: Math.random() * 8 + 4,
+            velocidade: Math.random() * 3 + 2,
+            cor: cores[Math.floor(Math.random() * cores.length)],
+            rotacao: Math.random() * 360
+        });
+    }
+
+    function animarConfetes() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        confetes.forEach(confete => {
+            ctx.save();
+
+            ctx.translate(confete.x, confete.y);
+            ctx.rotate(confete.rotacao * Math.PI / 180);
+
+            ctx.fillStyle = confete.cor;
+            ctx.fillRect(
+                -confete.tamanho / 2,
+                -confete.tamanho / 2,
+                confete.tamanho,
+                confete.tamanho
+            );
+
+            ctx.restore();
+
+            confete.y += confete.velocidade;
+            confete.rotacao += 2;
+
+            if (confete.y > canvas.height) {
+                confete.y = -10;
+                confete.x = Math.random() * canvas.width;
+            }
+        });
+
+        requestAnimationFrame(animarConfetes);
+    }
+
+    animarConfetes();
+
+    window.addEventListener("resize", () => {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    });
+</script>
+</body>
+
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Tem certeza?</title>
+    <link rel="stylesheet" href="style.css">
+
+
+</head>
+
+<body>
+
+    <div class="container-box">
+
+        <div class="content-box">
+
+            <h1>Hoje é seu aniversário?</h1>
+
+            <div class="imagem-container">
+                <img src="happy-birthday-cat-gif-2.gif" alt="Imagem de aniversário">
+            </div>
+
+            <div class="botoes">
+                <button id="btn2">Sim</button>
+                <button id="meuBotao" f>Não</button>
+            </div>
+
+        </div>
+
+    </div>
+    <script>
+        const botao = document.getElementById('meuBotao');
+
+        botao.addEventListener('click', () => {
+
+            // Na primeira vez que clicar,
+            // tira o botão do layout normal
+            botao.classList.add('fugindo');
+
+            const larguraMax =
+                window.innerWidth - botao.offsetWidth;
+
+            const alturaMax =
+                window.innerHeight - botao.offsetHeight;
+
+            const randomX =
+                Math.floor(Math.random() * larguraMax);
+
+            const randomY =
+                Math.floor(Math.random() * alturaMax);
+
+            botao.style.left = randomX + 'px';
+            botao.style.top = randomY + 'px';
+           
+            
+        });
+        const botao2 = document.getElementById("btn2");
+
+            botao2.addEventListener("click", minhaFuncao);
+
+            function minhaFuncao() {
+                window.location.href = "page2.html";
+            };
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,115 @@
+  * {
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    background-color: #f4f4f4;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-box {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content-box {
+    background-color: black;
+    color: white;
+    text-align: center;
+
+    width: 400px;
+    max-width: 90vw;
+
+    padding: 25px;
+
+    border-radius: 10px;
+
+    overflow: hidden;
+}
+
+h1 {
+    margin: 0 0 20px 0;
+    font-size: 26px;
+}
+
+/* ÁREA DA IMAGEM */
+.imagem-container {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.imagem-container img {
+    display: block;
+
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+}
+#confetti {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+}
+.imagem-container-page2 {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 10px;
+    width: 100%;
+}
+
+.imagem-container-page2 img {
+    width: calc(50% - 5px);
+    height: 250px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+/* BOTÕES */
+.botoes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+button {
+    width: 120px;
+    padding: 10px 20px;
+
+    font-size: 16px;
+
+    border: none;
+    border-radius: 5px;
+
+    cursor: pointer;
+}
+
+#btn2 {
+    background-color: #4caf50;
+    color: white;
+}
+
+#meuBotao {
+    background-color: #ff5722;
+    color: white;
+}
+
+/* Quando o botão começar a fugir */
+#meuBotao.fugindo {
+    position: fixed;
+}
